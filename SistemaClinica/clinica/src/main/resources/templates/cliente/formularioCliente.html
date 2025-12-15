@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Paciente — Clínica</title>
+    <!-- Icone dá página -->
+    <link rel="icon" type="image/png" th:href="@{/img/clinicalove.png}">
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Meu CSS -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body id="body">
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card p-4 shadow card-form-custom col-12 col-md-8 col-lg-6">
+
+            <h2 class="text-center mb-4 titulo">
+                <i class="bi bi-person-plus-fill me-2"></i>Cadastro de Pacientes
+            </h2>
+
+            <form th:action="@{/clientes/salvar}" method="POST" th:object="${cliente}" class="needs-validation"
+                novalidate>
+
+                <input type="hidden" name="idCliente" th:field="*{idCliente}" readonly />
+
+                <!-- Nome -->
+                <div class="mb-3">
+                    <label class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control form-control-custom" th:field="*{nomeCliente}"
+                        placeholder="Digite o nome completo" required>
+                    <div class="invalid-feedback">O nome é obrigatório.</div>
+                </div>
+
+                <!-- CEP -->
+                <div class="mb-3">
+                    <label class="form-label">CEP</label>
+                    <input type="text" id="cep" maxlength="9" class="form-control form-control-custom" th:field="*{cep}"
+                        placeholder="00000-000" required>
+                    <div class="invalid-feedback">Informe um CEP válido.</div>
+                </div>
+
+                <!-- Rua -->
+                <div class="mb-3">
+                    <label class="form-label">Rua</label>
+                    <input type="text" id="rua" class="form-control form-control-custom" th:field="*{rua}" required>
+                    <div class="invalid-feedback">Informe a rua.</div>
+                </div>
+
+                <div class="row">
+
+                    <!-- Bairro -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Bairro</label>
+                        <input type="text" id="bairro" class="form-control form-control-custom" th:field="*{bairro}"
+                            required>
+                        <div class="invalid-feedback">Informe o bairro.</div>
+                    </div>
+
+                    <!-- Cidade -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Cidade</label>
+                        <input type="text" id="cidade" class="form-control form-control-custom" th:field="*{cidade}"
+                            required>
+                        <div class="invalid-feedback">Informe a cidade.</div>
+                    </div>
+                </div>
+
+                <!-- Estado -->
+                <div class="mb-3">
+                    <label class="form-label">Estado (UF)</label>
+                    <input type="text" id="uf" maxlength="2" class="form-control form-control-custom"
+                        th:field="*{estado}" required>
+                    <div class="invalid-feedback">Informe o estado (UF).</div>
+                </div>
+
+                <!-- Campo oculto -->
+                <input type="hidden" id="enderecoCliente" th:field="*{enderecoCliente}">
+
+                <!-- Telefone -->
+                <div class="mb-3">
+                    <label class="form-label">Telefone</label>
+                    <input type="tel" class="form-control form-control-custom" th:field="*{telefoneCliente}"
+                        placeholder="(00) 00000-0000" required>
+                    <div class="invalid-feedback">Informe um telefone válido.</div>
+                </div>
+
+                <!-- Botão salvar -->
+                <button type="submit" class="btn btn-custom w-100 py-2 fs-5">
+                    <i class="bi bi-check2-circle me-2"></i>Salvar
+                </button>
+
+            </form>
+
+            <!-- Botões adicionais -->
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/clientes/listar" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left-circle-fill me-2"></i> Voltar
+                </a>
+                <a href="/clinica" class="btn btn-secondary">
+                    <i class="bi bi-house-door-fill me-2"></i> Início
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 py-3 footer-custom">
+        <p class="m-0">© 2025 Clínica — Sistema de Gestão Médica.</p>
+    </footer>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- BUSCA CEP API e JS -->
+    <!-- Adicionando JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Adicionando Javascript do busca cep -->
+    <script th:src="@{/js/script.js}"></script>
+    <!-- Tema -->
+    <script th:src="@{/js/theme.js}"></script>
+</body>
+
+</html>

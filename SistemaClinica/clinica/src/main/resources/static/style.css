@@ -1,0 +1,355 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+  }
+  body {
+    background-color: #F5F5F5;
+    margin: 0;
+    padding-bottom: 70px; /* 10px a mais que o footer */
+  }
+  /* == Página inicial geral == */
+  #conteudo-inicial {
+    background-color: #ECEFF1 !important;
+    border: 2px solid #B0BEC5;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px #00000026;
+    text-align: center;
+  }
+  /* Será usado em toda as páginas, configurações de titulo/texto, etc */
+  .titulo {
+    color: #333333;
+    font-weight: 700;
+}
+ .texto-principal {
+    color: #424242;
+    font-weight: bold;
+ }
+ /* === Botões === */
+ .btn-custom {
+  background-color: #1E88E5;
+  border-color: #1976D2; /* #1E88E5 */
+  color: #fff;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 2px 4px #00000020;
+ }
+ .btn-custom:hover {
+  background-color: #64B5F6; /* #90CAF9 */
+  border-color: #42A5F5; /*# 90CAF9 */
+  color: #fff;
+  box-shadow: 0 4px 8px #00000030;
+}
+/* === Tabela === */
+/* Cabeçalho primário */
+.table-header-custom th {
+    background-color: #1E88E5 !important;
+    color: white !important;
+    font-weight: bold;
+}
+/* Linhas alternadas */
+.tabela-custom tbody tr:nth-child(odd) {
+    background-color: #FAFAFA;
+}
+
+/* Ícones de editar e xcluir */
+.btn-edit {
+    background-color: #1E88E5;
+    color: white;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+.btn-edit:hover {
+    background-color: #1565C0;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #E53935;
+    color: white;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+.btn-delete:hover {
+    background-color: #B71C1C;
+    color: white;
+}
+/* Alinha responsivamente dos botões de ação */
+.acoes-cell {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Espaço igual entre os botões */
+}
+/* empilha e mantém alinhado perfeitamente no mobili */
+@media (max-width: 576px) {
+  .acoes-cell {
+      flex-direction: column;
+      gap: 6px;
+  }
+
+  .acoes-cell .btn {
+      width: 38px;   /* Largura fixa */
+      height: 38px;  /* Altura fixa */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+  }
+}
+/* botão voltar: */
+.btn-voltar {
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px #00000020;
+}
+
+.btn-voltar:hover {
+    box-shadow: 0 4px 8px #00000035;
+}
+/* Tabela bordas */
+.tabela-custom {
+    border-radius: 12px;
+    overflow: hidden; /* Mantém o arredondamento mesmo com table-responsive */
+    box-shadow: 0 4px 15px #00000020;
+}
+
+/* == Formulário == */
+/* Card do formulário */
+.card-form-custom {
+    background-color: #ECEFF1;
+    border-radius: 16px;
+    border: 2px solid #B0BEC5;
+    box-shadow: 0 4px 15px #00000026;
+}
+
+/* Campos personalizados */
+.form-control-custom {
+    border: 2px solid #B0BEC5;
+    transition: 0.3s;
+}
+
+.form-control-custom:focus {
+    border-color: #1E88E5;
+    box-shadow: 0 0 5px #1E88E5;
+}
+
+/* Validação */
+.was-validated .form-control:valid {
+    border-color: #43A047 !important;
+}
+
+.was-validated .form-control:invalid {
+    border-color: #E53935 !important;
+}
+
+.invalid-feedback {
+    color: #E53935;
+}
+
+.valid-feedback {
+    color: #43A047;
+}
+
+/* Mensagem de aviso (caso queira usar mais tarde) */
+.alert-warning-custom {
+    background-color: #FB8C00;
+    color: white;
+    border: none;
+}
+/* === Footer === */
+.footer-custom {
+  background-color: #ECEFF1;
+  color: #424242;
+  border-top: 2px solid #B0BEC5;
+  box-shadow: 0 -2px 8px #00000015;
+  font-weight: 600;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  
+}
+/* TEMA ESCURO */
+
+.dark-mode {
+    background-color: #121212 !important;
+    color: #E0E0E0 !important;
+}
+
+/* Card da página inicial */
+body.dark-mode #conteudo-inicial {
+    background-color: #1E1E1E !important;
+    border-color: #333 !important;
+    color: #E0E0E0 !important;
+}
+/* Botão tema claro */
+
+body.dark-mode .bi-sun-fill {
+    color: #000 !important; /* Quando tiveer no tema escuro */
+}
+
+/* Textos */
+body.dark-mode .titulo,
+body.dark-mode .texto-principal {
+    color: #E0E0E0 !important;
+}
+
+/* Botões principais */
+body.dark-mode .btn-custom {
+    background-color: #90CAF9 !important;
+    border-color: #64B5F6 !important;
+    color: #000 !important;
+}
+
+body.dark-mode .btn-custom:hover {
+    background-color: #64B5F6 !important;
+    border-color: #90CAF9 !important;
+}
+
+/* Footer */
+body.dark-mode .footer-custom {
+    background-color: #1E1E1E !important;
+    color: #BDBDBD !important;
+    border-top: 2px solid #333 !important;
+}
+
+/* Botões do seletor de tema */
+.btn-theme-toggle {
+    border: none;
+    background: #ddd;
+    padding: 10px 14px;
+    margin-right: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-theme-toggle.active {
+    background: #1E88E5;
+    color: white;
+}
+
+body.dark-mode .btn-theme-toggle.active {
+    background: #64B5F6;
+    color: black;
+}
+/* ===== COMPLEMENTO DO TEMA ESCURO ===== */
+
+/* Tabela */
+body.dark-mode .table-header-custom th {
+    background-color: #1565C0 !important; /* azul escuro */
+    color: #E0E0E0 !important;
+}
+
+body.dark-mode .tabela-custom tbody tr:nth-child(odd) {
+    background-color: #1E1E1E !important;
+}
+
+body.dark-mode .tabela-custom tbody tr:nth-child(even) {
+    background-color: #181818 !important;
+}
+
+body.dark-mode .tabela-custom {
+    box-shadow: 0 4px 15px #00000060 !important;
+}
+
+/* Botões editar/excluir */
+body.dark-mode .btn-edit {
+    background-color: #64B5F6 !important;
+    color: #000 !important;
+}
+
+body.dark-mode .btn-edit:hover {
+    background-color: #42A5F5 !important;
+}
+
+body.dark-mode .btn-delete {
+    background-color: #EF5350 !important; /* vermelho suave */
+    color: #000 !important;
+}
+
+body.dark-mode .btn-delete:hover {
+    background-color: #E53935 !important;
+}
+
+/* Card formulário */
+body.dark-mode .card-form-custom {
+    background-color: #1E1E1E !important;
+    border-color: #333 !important;
+    box-shadow: 0 4px 15px #00000055 !important;
+}
+
+/* Campos personalizados */
+body.dark-mode .form-control-custom {
+    background-color: #121212 !important;
+    color: #E0E0E0 !important;
+    border-color: #555 !important;
+}
+
+body.dark-mode .form-control-custom:focus {
+    border-color: #64B5F6 !important;
+    box-shadow: 0 0 5px #64B5F6 !important;
+}
+
+/* Validação */
+body.dark-mode .invalid-feedback {
+    color: #E57373 !important;
+}
+
+body.dark-mode .valid-feedback {
+    color: #81C784 !important;
+}
+
+/* Alerts */
+body.dark-mode .alert-warning-custom {
+    background-color: #FB8C00 !important;
+    color: #000 !important;
+}
+
+/* Botão voltar */
+body.dark-mode .btn-voltar {
+    background-color: #424242 !important;
+    border-color: #616161 !important;
+    color: #E0E0E0 !important;
+}
+
+body.dark-mode .btn-voltar:hover {
+    background-color: #616161 !important;
+    box-shadow: 0 4px 8px #00000055 !important;
+}
+
+/* ÍCONES */
+body.dark-mode i {
+    color: #E0E0E0 !important;
+}
+
+/* Inputs padrão Bootstrap (caso algum não use .form-control-custom) */
+body.dark-mode .form-control {
+    background-color: #121212 !important;
+    color: #E0E0E0 !important;
+    border-color: #555 !important;
+}
+
+body.dark-mode .form-control:focus {
+    border-color: #64B5F6 !important;
+    box-shadow: 0 0 5px #64B5F6 !important;
+}
+
+/* Table row hover */
+body.dark-mode table tbody tr:hover {
+    background-color: #2A2A2A !important;
+}
+
+/* Labels */
+body.dark-mode label {
+    color: #E0E0E0 !important;
+}
+
+/* Card da agenda(cabeçalho?) */
+body.dark-mode .card-header {
+    background-color: #242020 !important;
+}

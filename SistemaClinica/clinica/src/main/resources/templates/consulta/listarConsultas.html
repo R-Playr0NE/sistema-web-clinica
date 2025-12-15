@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas Agendadas — Clínica</title>
+    <!-- Icone dá página -->
+    <link rel="icon" type="image/png" th:href="@{/img/clinicalove.png}">
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Meu CSS -->
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body id="body">
+
+    <div class="container my-5">
+        <div class="d-flex justify-content-between mb-4">
+            <a href="/consultas/criar" class="btn btn-custom">
+                <i class="bi bi-person-plus-fill me-2"></i> Cadastrar Consultas
+            </a>
+            <a href="/clinica" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-circle-fill me-2"></i> Voltar
+            </a>
+        </div>
+        <div class="table-responsive mx-auto" style="max-width: 1100px;">
+            <table
+                class="table table-bordered table-striped table-hover table-sm tabela-custom w-100 align-middle text-center">
+                <thead class="table-header-custom">
+                    <tr>
+                        <th colspan="8" class="fs-4">Lista de Consulta</th>
+                    </tr>
+                    <tr>
+                        <th>Data e Hora</th>
+                        <th>Medico</th>
+                        <th>Paciente</th>
+                        <th>Açoes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="consulta: ${consultas}">
+                        <td th:text="${consulta.dataehoraConsulta}"></td>
+                        <td th:text="${consulta.medico != null ? consulta.medico.nomeMedico : 'Sem medico'}"></td>
+                        <td th:text="${consulta.cliente != null ? consulta.cliente.nomeCliente : 'Sem paciente'}"></td>
+                        <!-- Editar e excluir -->
+                        <td class="acoes-cell">
+                            <a th:href="@{/consultas/editar/{id}(id=${consulta.idConsulta})}" 
+                                class="btn btn-sm btn-edit">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            <a th:href="@{/consultas/excluir/{id}(id=${consulta.idConsulta})}" 
+                                class="btn btn-sm btn-delete"
+                                onclick="return confirm('Confirma exclusão da consulta?');">
+                                <i class="bi bi-trash-fill"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5 py-3 footer-custom">
+        <p class="m-0">© 2025 Clínica — Sistema de Gestão Médica.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+        <script th:src="@{/js/theme.js}"></script>
+</body>
+
+</html>
