@@ -33,3 +33,6 @@ Criar, editar, excluir e listar consultas.
 3. Funcionalidade Especial (Agenda Completa)
 Criar um endpoint que retorne a agenda completa de todos os médicos.
 O retorno deve mostrar o nome do médico, sua especialidade e a lista de consultas associadas a ele.
+
+# Como executar o sistema:
+Após criar o banco de dados, com o database com o seguinte nome: bdclinica, você deve abrir o navegador e digitar: localhost:8081
